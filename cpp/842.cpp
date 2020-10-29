@@ -2,7 +2,7 @@
 using namespace std;
 typedef long long LL;
 typedef pair<int,int> PII;
-const int N=1e5+10;
+const int N=10;
 int n,m;
 int path[N];
 bool st[N];
