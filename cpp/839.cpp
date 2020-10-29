@@ -84,6 +84,5 @@ int main()
             down(k), up(k);
         }
     }
-    system("pause");
     return 0;
 }
