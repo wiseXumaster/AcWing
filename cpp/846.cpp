@@ -5,7 +5,7 @@ const int N = 1e5 + 10, M = 2 * N;
 int h[N], e[M], ne[M], idx;
 bool st[N];
 int n;
-int ans=N;
+int ans = N;
 
 void add(int a, int b)
 {
@@ -24,6 +24,7 @@ int dfs(int u)
         int j = e[i];
         if (!st[j])
         {
+            //子节点的个数
             int s = dfs(j);
             res = max(res, s);
             sum += s;
@@ -42,15 +43,16 @@ int main()
 
     memset(h, -1, sizeof h);
 
-    for(int i=0;i<n-1;i++){
-        int a,b;
-        cin>>a>>b;
-        add(a,b),add(b,a);
+    for (int i = 0; i < n - 1; i++)
+    {
+        int a, b;
+        cin >> a >> b;
+        add(a, b), add(b, a);
     }
 
     dfs(1);
 
-    cout<<ans<<endl;
+    cout << ans << endl;
 
     return 0;
 }
