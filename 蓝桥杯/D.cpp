@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int y = 2020, m = 1, d = 1, w = 6;
+int y = 2000, m = 1, d = 1, w = 6;
 int month[13] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
 int day[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-int res=1;
+int res;
 
 int isYear(int year)
 {
@@ -17,25 +17,45 @@ int isYear(int year)
 int main()
 {
 
-    while(y!=2020&&m!=10&&d!=1){
-        if(w==1||d==1){
-            res+=2;
-        }else{
-            res+=1;
+    while (1)
+    {
+        if (w == 1 || d == 1)
+        {
+            res += 2;
         }
-
+        else
+        {
+            res += 1;
+        }
         d++;
-        if(d>day[m]){
-            d=1;
-            m+=1;
+        w++;
+        if (w == 8)
+            w = 1;
+
+        if (m == 2)
+        {
+            day[m] += isYear(y);
         }
 
-        if(m==13){
-            m=1;
-            y+=1;
+        if (d > day[m])
+        {
+            d = 1;
+            m += 1;
+        }
+
+        if (m == 13)
+        {
+            m = 1;
+            y += 1;
+        }
+        day[2] = 28;
+        if (y == 2020 && m == 10 && d == 1)
+        {
+            res += 2;
+            cout << res << endl;
+            system("pause");
+            return 0;
         }
     }
-    cout<<res<<endl;
-    system("pause");
     return 0;
 }
