@@ -23,7 +23,7 @@ int bellman_ford()
             int a = edges[j].a, b = edges[j].b, w = edges[j].w;
             dist[b] = min(dist[b], backup[a] + w);
         }
-    }
+    }  
 
     if (dist[n] > 0x3f3f3f3f / 2)
         return -1;

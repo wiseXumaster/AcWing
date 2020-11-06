@@ -24,11 +24,14 @@ int dijkstra(){
     heap.push({0,1});
 
     while(heap.size()){
+
+        // 总是能找到最小的
         auto t=heap.top();
         heap.pop();
 
         int ver=t.second,distance=t.first;
 
+        // 忽略冗余元素
         if(st[ver]) continue;
 
         for(int i=h[ver];i!=-1;i=ne[i]){
